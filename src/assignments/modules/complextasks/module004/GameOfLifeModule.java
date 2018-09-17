@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignments.modules.complextasks;
+package assignments.modules.complextasks.module004;
 
+import assignments.modules.complextasks.AbstractComplexTask;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GameOfLifeModule004 extends AbstractComplexTask {
+public class GameOfLifeModule extends AbstractComplexTask {
 
-    private final static char CELL = 'O';
-    private final static char EMPTY = '-';
-    private final static long INTERVAL = 350;
-    private int[][] world = {
+    private final static char CELL = 'O';     //The char represeting a live cell.
+    private final static char EMPTY = '-';    //The char representing a dead cell.
+    private final static long INTERVAL = 350; //The interval in miliseconds between each iteration.
+    private int[][] world = { //The default world map.
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -32,10 +33,10 @@ public class GameOfLifeModule004 extends AbstractComplexTask {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
-    private final int HEIGHT = world.length;
-    private final int WIDTH = world[0].length;
+    private final int HEIGHT = world.length;   //The height of the world/number of rows.
+    private final int WIDTH = world[0].length; //The width of the world/number of colums.
 
-    public GameOfLifeModule004(Scanner scanner) {
+    public GameOfLifeModule(final Scanner scanner) {
         super(scanner);
     }
 
@@ -48,7 +49,7 @@ public class GameOfLifeModule004 extends AbstractComplexTask {
             try {
                 Thread.sleep(INTERVAL); //Sleep for INTERVAL miliseconds.
             } catch (InterruptedException ex) {
-                Logger.getLogger(GameOfLifeModule004.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(GameOfLifeModule.class.getName()).log(Level.SEVERE, null, ex);
             }
             calculateIteration(); //Calculate the new iteration.
             printWorld();         //Print the newly generated world.
@@ -56,7 +57,7 @@ public class GameOfLifeModule004 extends AbstractComplexTask {
     }
 
     private void printWorld() {
-        // Loop 2D array printing the character associated with either a dead or a live cell.
+        //Loop 2D array printing the character associated with either a dead or a live cell.
         for (int row = 0; row < world.length; row++) {
             for (int col = 0; col < world[0].length; col++) {
                 System.out.print(world[row][col] == 0 ? EMPTY : CELL);
@@ -73,11 +74,11 @@ public class GameOfLifeModule004 extends AbstractComplexTask {
      * Calculates the next iteration based on the rules of the game.
      */
     private void calculateIteration() {
-        int[][] copy = getWorldCopy();                           //Get a copy of the current world.
+        final int[][] copy = getWorldCopy();                     //Get a copy of the current world.
         for (int row = 0; row < world.length; row++) {           //Loop the current world.
             for (int col = 0; col < world[0].length; col++) {
-                boolean hasCell = world[row][col] == 1;         //Check if the position has a cell.
-                int neighbours = calculateNeighbours(row, col); //Calculate the number of neighbours this cell has.
+                boolean hasCell = world[row][col] == 1;          //Check if the position has a cell.
+                final int neighbours = calculateNeighbours(row, col); //Calculate the number of neighbours this cell has.
                 if (hasCell) {
                     if (neighbours < 2) { //1. Any live cell with fewer than two live neighbors dies, as if by under population.
                         hasCell = false;
@@ -102,7 +103,7 @@ public class GameOfLifeModule004 extends AbstractComplexTask {
      * @param col is the cell's column.
      * @return the amount of neighbours.
      */
-    private int calculateNeighbours(int row, int col) {
+    private int calculateNeighbours(final int row, final int col) {
         int neighbours = 0;
         //Loop offsets from -1 to +1 and check if the position has a live cell or a dead cell.
         for (int offsetHeight = -1; offsetHeight <= 1; offsetHeight++) {
@@ -123,7 +124,7 @@ public class GameOfLifeModule004 extends AbstractComplexTask {
      * @return a copy of the world map.
      */
     private int[][] getWorldCopy() {
-        int[][] copy = new int[world.length][world[0].length];
+        final int[][] copy = new int[world.length][world[0].length];
         for (int row = 0; row < world.length; row++) {
             System.arraycopy(world[row], 0, copy[row], 0, world[row].length);
         }

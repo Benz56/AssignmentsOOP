@@ -6,9 +6,7 @@
 package assignments.modules;
 
 import assignments.ScannerUtil;
-import assignments.modules.complextasks.GameOfLifeModule004;
-import java.util.Arrays;
-import java.util.List;
+import assignments.modules.complextasks.module004.GameOfLifeModule;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -85,12 +83,12 @@ public class Module004 extends AModule {
 
         addAssignment("C.3", scanner -> {
             System.out.println("Printing temperature differences:");
-            final List<String> days = Arrays.asList("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
-            final List<Double> temperatures = Arrays.asList(21.5, 23.7, 19.6, 22.5, 25.3, 21.7, 18.9);
+            final String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+            final double [] temperatures = {21.5, 23.7, 19.6, 22.5, 25.3, 21.7, 18.9};
 
             for (int today = 1; today < 7; today++) {
                 final int yesterday = today - 1;
-                System.out.println(" Temparture difference between " + days.get(yesterday) + " and " + days.get(today) + " is " + String.format("%.2f", Math.abs(temperatures.get(today) - temperatures.get(yesterday))));
+                System.out.println(" Temparture difference between " + days[yesterday] + " and " + days[today] + " is " + String.format("%.2f", Math.abs(temperatures[today] - temperatures[yesterday])));
             }
         });
 
@@ -138,6 +136,6 @@ public class Module004 extends AModule {
             System.out.println("The largest value in the array is " + largestValue + " and has an index of " + index);
         });
 
-        addAssignment("C.7", scanner -> new GameOfLifeModule004(scanner).runTask());
+        addAssignment("C.7", scanner -> new GameOfLifeModule(scanner).runTask());
     }
 }
