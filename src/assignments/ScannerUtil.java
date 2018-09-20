@@ -16,9 +16,11 @@ public class ScannerUtil {
     public static int getInteger(Scanner scanner) {
         return getInteger(scanner, "Please input an integer value!");
     }
-    
-    public static int getInteger(Scanner scanner, String errorMessage) {
-        System.out.println(errorMessage);
+
+    public static int getInteger(Scanner scanner, String inputMessage) {
+        if (!inputMessage.isEmpty()) {
+            System.out.print(inputMessage);
+        }
         Integer value = null;
         do {
             try {
@@ -30,13 +32,35 @@ public class ScannerUtil {
         } while (value == null);
         return value;
     }
+    
+    public static long getLong(Scanner scanner) {
+        return getLong(scanner, "Please input a long value!");
+    }
+
+    public static long getLong(Scanner scanner, String inputMessage) {
+        if (!inputMessage.isEmpty()) {
+            System.out.print(inputMessage);
+        }
+        Long value = null;
+        do {
+            try {
+                value = scanner.nextLong();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please input a long value!");
+                scanner.next();
+            }
+        } while (value == null);
+        return value;
+    }
 
     public static double getDouble(Scanner scanner) {
         return getDouble(scanner, "Please input a double or integer value!");
     }
-    
-    public static double getDouble(Scanner scanner, String errorMessage) {
-        System.out.println(errorMessage);
+
+    public static double getDouble(Scanner scanner, String inputMessage) {
+        if (!inputMessage.isEmpty()) {
+            System.out.println(inputMessage);
+        }
         Double value = null;
         do {
             try {

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignments.modules.complextasks.module004;
+package assignments.modules.module004;
 
-import assignments.modules.complextasks.AbstractComplexTask;
+import assignments.modules.AbstractComplexTask;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GameOfLifeModule extends AbstractComplexTask {
+public class GameOfLife extends AbstractComplexTask {
 
     private final static char CELL = 'O';     //The char represeting a live cell.
     private final static char EMPTY = '-';    //The char representing a dead cell.
@@ -36,7 +36,7 @@ public class GameOfLifeModule extends AbstractComplexTask {
     private final int HEIGHT = world.length;   //The height of the world/number of rows.
     private final int WIDTH = world[0].length; //The width of the world/number of colums.
 
-    public GameOfLifeModule(final Scanner scanner) {
+    public GameOfLife(final Scanner scanner) {
         super(scanner);
     }
 
@@ -44,12 +44,12 @@ public class GameOfLifeModule extends AbstractComplexTask {
      * Start the Game of Life loop.
      */
     @Override
-    public void runTask() {
+    public void runAssignment() {
         while (true) {
             try {
                 Thread.sleep(INTERVAL); //Sleep for INTERVAL miliseconds.
             } catch (InterruptedException ex) {
-                Logger.getLogger(GameOfLifeModule.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(GameOfLife.class.getName()).log(Level.SEVERE, null, ex);
             }
             calculateIteration(); //Calculate the new iteration.
             printWorld();         //Print the newly generated world.

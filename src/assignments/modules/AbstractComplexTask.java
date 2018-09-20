@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignments.modules.complextasks;
+package assignments.modules;
 
 import java.util.Scanner;
 
@@ -19,5 +19,5 @@ public abstract class AbstractComplexTask {
         this.scanner = scanner;
     }
     
-    public abstract void runTask();
+    public abstract void runAssignment();
 }

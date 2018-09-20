@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignments.modules;
+package assignments.modules.module004;
 
 import assignments.ScannerUtil;
-import assignments.modules.complextasks.module004.GameOfLifeModule;
+import assignments.modules.AModule;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -84,7 +84,7 @@ public class Module004 extends AModule {
         addAssignment("C.3", scanner -> {
             System.out.println("Printing temperature differences:");
             final String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-            final double [] temperatures = {21.5, 23.7, 19.6, 22.5, 25.3, 21.7, 18.9};
+            final double[] temperatures = {21.5, 23.7, 19.6, 22.5, 25.3, 21.7, 18.9};
 
             for (int today = 1; today < 7; today++) {
                 final int yesterday = today - 1;
@@ -136,6 +136,6 @@ public class Module004 extends AModule {
             System.out.println("The largest value in the array is " + largestValue + " and has an index of " + index);
         });
 
-        addAssignment("C.7", scanner -> new GameOfLifeModule(scanner).runTask());
+        addAssignment("C.7", scanner -> new GameOfLife(scanner).runAssignment());
     }
 }
