@@ -28,7 +28,7 @@ public class Module007_2 extends AbstractComplexTask {
         final CustomerDatabase customerDatabase = new CustomerDatabase();
 
         // Populate the database with a Customer object for each of the following names.
-        String[] names = {"Bob", "Jan", "Klaus", "Holger", "Myrna", "John"};
+        final String[] names = {"Bob", "Jan", "Klaus", "Holger", "Myrna", "John"};
         for (int i = 0; i < 6; i++) {
             // Insert the Customers by name, and id, and an arbritrary balance.
             customerDatabase.insertCustomer(new Customer(names[i], i + 1, Math.random() * 1_000));

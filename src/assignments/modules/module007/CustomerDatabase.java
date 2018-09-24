@@ -23,7 +23,7 @@ public class CustomerDatabase {
      * @param customer is the customer to insert.
      */
     public void insertCustomer(final Customer customer) {
-        Customer[] copy = new Customer[customers.length + 1];       // Instantiate a new Customer array one larger than the current.
+        final Customer[] copy = new Customer[customers.length + 1];       // Instantiate a new Customer array one larger than the current.
         System.arraycopy(customers, 0, copy, 0, customers.length);  // Copy the current array. This is the same as using a for loop.
         copy[copy.length - 1] = customer;                           // Assign the last empty slot to the new customer.
         customers = copy;                                           // Replace the current array with the new array.
@@ -38,7 +38,7 @@ public class CustomerDatabase {
      * removed.
      */
     public boolean removeCustomerById(final int id) {
-        Customer[] copy = new Customer[customers.length - 1];   // Instantiate a new Customer array one smaller than the current.
+        final Customer[] copy = new Customer[customers.length - 1];   // Instantiate a new Customer array one smaller than the current.
         int i = 0;                                              // Declare the int i and assign it to 0;
         for (Customer customer : customers) {                   // Loop all customers using an enhance for loop.
             if (customer.getId() != id) {                       // Check if the customers id does NOT equal the id of the customer to remove.
