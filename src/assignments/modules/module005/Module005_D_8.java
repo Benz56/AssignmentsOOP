@@ -53,14 +53,14 @@ public class Module005_D_8 extends AbstractComplexTask {
     }
 
     /**
-     * This metod will check the current row and column. The row and column is
-     * checked for occurences of the value passed. If either of the two has more
-     * than one occurence of the value the grid is invalid.
+     * This method will check the current row and column. The row and column is
+     * checked for occurrences of the value passed. If either of the two has more
+     * than one occurrences of the value the grid is invalid.
      *
      * @param row is the row being checked.
      * @param col is the column being checked.
      * @param value is the value being cross checked for.
-     * @return whether or not the value occured more than once in either the row
+     * @return whether or not the value occurred more than once in either the row
      * or the column.
      */
     private boolean crossCheck(int row, int col, int value) {

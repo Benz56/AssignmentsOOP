@@ -8,12 +8,11 @@ package assignments;
 import assignments.modules.AModule;
 import assignments.modules.module004.Module004;
 import assignments.modules.module005.Module005;
+import assignments.modules.module007.Module007;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.stream.Stream;
 
 /**
@@ -27,7 +26,7 @@ public class Assignments {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {       
+    public static void main(String[] args) {
         Assignments assignments = new Assignments();
         assignments.loadModules();
         assignments.run();
@@ -61,7 +60,8 @@ public class Assignments {
     private void loadModules() {
         modules.addAll(Arrays.asList(
                 new Module004(4),
-                new Module005(5)
+                new Module005(5),
+                new Module007(7)
         ));
         modules.forEach(module -> module.loadModuleTasks());
     }
