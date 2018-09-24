@@ -16,12 +16,13 @@ public class CustomerDatabase {
 
     // All Java classes have an implicit public no-args constructor.
     // Since no logic has to be performed on Object creation it has been left out.
+    
     /**
      * Insert a new Customer into the "database".
      *
      * @param customer is the customer to insert.
      */
-    public void insertCustomer(Customer customer) {
+    public void insertCustomer(final Customer customer) {
         Customer[] copy = new Customer[customers.length + 1];       // Instantiate a new Customer array one larger than the current.
         System.arraycopy(customers, 0, copy, 0, customers.length);  // Copy the current array. This is the same as using a for loop.
         copy[copy.length - 1] = customer;                           // Assign the last empty slot to the new customer.
@@ -36,7 +37,7 @@ public class CustomerDatabase {
      * @return whether or not a Customer with the given id was found and
      * removed.
      */
-    public boolean removeCustomerById(int id) {
+    public boolean removeCustomerById(final int id) {
         Customer[] copy = new Customer[customers.length - 1];   // Instantiate a new Customer array one smaller than the current.
         int i = 0;                                              // Declare the int i and assign it to 0;
         for (Customer customer : customers) {                   // Loop all customers using an enhance for loop.
@@ -65,7 +66,7 @@ public class CustomerDatabase {
      */
     public void printStoredCustomerNames() {
         for (Customer customer : customers) {
-            System.out.printf(" Customer %-6s with the id %s has %-5.2f$%n", customer.getName(), customer.getId(), customer.getBalance());
+            System.out.printf(" Customer %-6s with the id %s has %-7.2f$%n", customer.getName(), customer.getId(), customer.getBalance());
         }
     }
 }

@@ -24,7 +24,7 @@ public class Module007_1 extends AbstractComplexTask {
     @Override
     public void runAssignment() {
         // Instantiate a new customer object for Jeff Bezos giving him the id 1 and a balance of 157.3 Billion (his estimated net worth)
-        Customer aCustomer = new Customer("Jeff Bezos", 1, 157_300_000_000D);
+        final Customer aCustomer = new Customer("Jeff Bezos", 1, 157_300_000_000D);
 
         // Deposit a billion more.
         aCustomer.deposit(1_000_000_000);

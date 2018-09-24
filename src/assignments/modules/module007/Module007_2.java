@@ -25,7 +25,7 @@ public class Module007_2 extends AbstractComplexTask {
     @Override
     public void runAssignment() {
         // Instantiate a new CustomerDatabase.
-        CustomerDatabase customerDatabase = new CustomerDatabase();
+        final CustomerDatabase customerDatabase = new CustomerDatabase();
 
         // Populate the database with a Customer object for each of the following names.
         String[] names = {"Bob", "Jan", "Klaus", "Holger", "Myrna", "John"};
@@ -40,14 +40,18 @@ public class Module007_2 extends AbstractComplexTask {
         System.out.println("\n\n");
 
         // Take an integer input from the console.
-        Integer idToRemove = ScannerUtil.getInteger(scanner, "Please enter the id of a customer to remove: ");
+        final Integer idToRemove = ScannerUtil.getInteger(scanner, "Please enter the id of a customer to remove: ");
 
-        // Remove the customer.
-        customerDatabase.removeCustomerById(idToRemove);
+        // Try to remove the customer.
+        final boolean wasRemoved = customerDatabase.removeCustomerById(idToRemove);
 
-        // Print the stored customers again.
-        System.out.println("Currently stored customers:");
-        customerDatabase.printStoredCustomerNames();
-
+        // Based on whether or not a customer was removed either print the stored customers or again or an error message.
+        if (wasRemoved) {
+            // Print the stored customers again.
+            System.out.println("Currently stored customers:");
+            customerDatabase.printStoredCustomerNames();
+        } else {
+            System.out.println("No Customer with the id " + idToRemove + " exists!");
+        }
     }
 }
