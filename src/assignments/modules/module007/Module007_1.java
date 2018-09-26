@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Module007_1 extends AbstractComplexTask {
 
-    public Module007_1(Scanner scanner) {
+    public Module007_1(final Scanner scanner) {
         super(scanner);
     }
 

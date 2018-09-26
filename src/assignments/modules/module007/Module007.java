@@ -13,7 +13,7 @@ import assignments.modules.AModule;
  */
 public class Module007 extends AModule{
 
-    public Module007(int moduleNumber) {
+    public Module007(final int moduleNumber) {
         super(moduleNumber);
     }
 

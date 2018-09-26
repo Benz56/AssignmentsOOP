@@ -15,7 +15,7 @@ public abstract class AbstractComplexTask {
 
     protected final Scanner scanner;
     
-    public AbstractComplexTask(Scanner scanner) {
+    public AbstractComplexTask(final Scanner scanner) {
         this.scanner = scanner;
     }
     
