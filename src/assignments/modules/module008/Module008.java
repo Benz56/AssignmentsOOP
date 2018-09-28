@@ -21,10 +21,18 @@ public class Module008 extends AModule {
     @Override
     public void loadModuleTasks() {
         addAssignment("9.3", scanner -> {
+            // Create a new Date Object.
             final Date date = new Date();
+
+            // Declare a new long array and initialize it with the given values in the assignment.
             final long[] elapsedTimes = {10_000, 100_000, 1_000_000, 10_000_000, 100_000_000, 1_000_000_000, 10_000_000_000L, 100_000_000_000L};
+
+            // Loop the long array using an enhanced for loop.
             for (final long elapsedTime : elapsedTimes) {
+                // Set the elapsed time of the Date Object.
                 date.setTime(elapsedTime);
+
+                // Print the elapsed time and the string value of the date object.
                 System.out.println("With an elapsed time of " + elapsedTime);
                 System.out.println("The String value of the date object is: " + date.toString());
             }
