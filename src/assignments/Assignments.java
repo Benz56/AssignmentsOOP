@@ -9,6 +9,7 @@ import assignments.modules.AModule;
 import assignments.modules.module004.Module004;
 import assignments.modules.module005.Module005;
 import assignments.modules.module007.Module007;
+import assignments.modules.module008.Module008;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -61,7 +62,8 @@ public class Assignments {
         modules.addAll(Arrays.asList(
                 new Module004(4),
                 new Module005(5),
-                new Module007(7)
+                new Module007(7),
+                new Module008(8)
         ));
         modules.forEach(module -> module.loadModuleTasks());
     }
