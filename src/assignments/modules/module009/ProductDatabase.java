@@ -58,6 +58,6 @@ public class ProductDatabase {
      */
     public double getInventoryValuation() {
         // Using fancy streams to sum all of the currently stored products getPrice methods.
-        return inventory.values().stream().mapToDouble(Product::getPrice).sum();
+        return this.inventory.values().stream().mapToDouble(Product::getPrice).sum();
     }
 }

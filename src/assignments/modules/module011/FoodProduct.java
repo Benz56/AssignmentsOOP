@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignments.modules.module009;
+package assignments.modules.module011;
 
 import java.util.Date;
 
@@ -46,5 +46,18 @@ public class FoodProduct extends Product {
     @Override
     public String toString() {
         return super.getProductName() + " expires " + this.expirationDate.toString();
+    }
+
+    /**
+     * Overridden from Object class. Checks if the products have the same
+     * product number. If they do they are equal.
+     *
+     * @param obj the Object being compared.
+     * @return whether or not this instance is equal to the Object passed to the
+     * method.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof FoodProduct && super.getProductNumber() == ((FoodProduct) obj).getProductNumber();
     }
 }

@@ -25,9 +25,9 @@ public class Module009 extends AModule {
             final ProductDatabase productDatabase = new ProductDatabase();
 
             // Create one of each of the Product sub classes. (31536000000L is 1 year in milliseconds)
-            final FoodProduct foodProduct = new FoodProduct(1, "Noodles", 7.5, new Date(System.currentTimeMillis() + 31536000000L), 22);
+            final FoodProduct foodProduct = new FoodProduct(1, "Noodles", 7.5, new Date(System.currentTimeMillis() + 31_536_000_000L), 22);
             final NonFoodProduct nonFoodProduct = new NonFoodProduct(2, "TV", 12000, new String[]{"Frame", "Screen", "Power cord", "Whatever else"});
-
+           
             System.out.println(""); // Spacing.
 
             //Print their overridden toString methods.
