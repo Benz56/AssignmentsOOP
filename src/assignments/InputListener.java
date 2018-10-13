@@ -13,7 +13,6 @@ import assignments.modules.module008.Module008;
 import assignments.modules.module009.Module009;
 import assignments.modules.module011.Module011;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -92,7 +91,7 @@ public class InputListener {
      */
     private AModule getModule(final String input) {
         // Find the module which has a name that matches the input. Ignores case.
-        return modules.stream().filter(module -> Arrays.asList(module.getNames()).contains(input.toLowerCase())).findFirst().orElse(null);
+        return modules.stream().filter(module -> module.getName().equals(input.toLowerCase())).findFirst().orElse(null);
     }
 
     /**

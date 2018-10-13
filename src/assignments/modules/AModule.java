@@ -9,7 +9,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.function.Consumer;
-import java.util.stream.Stream;
 
 /**
  *
@@ -18,16 +17,16 @@ import java.util.stream.Stream;
 public abstract class AModule {
 
     private final Map<String, Consumer<Scanner>> assignmentMap = new LinkedHashMap<>();
-    private final String[] names;
     private final int moduleNumber;
+    private final String name;
 
     public AModule(final int moduleNumber) {
         this.moduleNumber = moduleNumber;
-        this.names = new String[]{"module" + moduleNumber, "mod" + moduleNumber, "m" + moduleNumber, String.valueOf(moduleNumber)};
+        this.name = String.valueOf(moduleNumber);
     }
 
     public boolean isModule(final String name) {
-        return Stream.of(names).anyMatch(predicate -> predicate.equalsIgnoreCase(name));
+        return this.name.equalsIgnoreCase(name);
     }
 
     public Consumer<Scanner> addAssignment(final String name, final Consumer<Scanner> assignment) {
@@ -41,9 +40,9 @@ public abstract class AModule {
     public int getModuleNumber() {
         return moduleNumber;
     }
-    
-    public String[] getNames() {
-        return names;
+
+    public String getName() {
+        return name;
     }
 
     public abstract void loadModuleTasks();
