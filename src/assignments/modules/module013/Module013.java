@@ -27,13 +27,15 @@ public class Module013 extends AModule {
     @Override
     public void loadModuleTasks() {
         addAssignment("run", scanner -> {
+            final String input = "1,2,red,blue";
+            
             final File csvFile = new File("C:\\Users\\bemma\\Desktop\\Uni\\OOP\\twocolors.csv"); // Create the File Object.
-
             if (!csvFile.exists()) {                                                // If the file doesn't exist, create it.
                 try {
                     csvFile.createNewFile();                                        // Create the file. (Throws IOException)
+                    
                     final PrintWriter printWriter = new PrintWriter(csvFile);       // Create the PrintWriter Object. (Throws FileNotFoundException; subclass of IOException)
-                    printWriter.println("1,2,red,blue");                            // Print/write the String to the File.
+                    printWriter.println(input);                            // Print/write the String to the File.
                     printWriter.close();                                            // Close the resource.
                 } catch (IOException ex) {                                          // Catch the IOException and FileNotFoundException.
                     System.out.println("Something terrible went wrong! Aborting");  // Print error message.
