@@ -10,7 +10,7 @@ package assignments;
  * @author Benjamin Staugaard | Benz56
  */
 public class Assignments {
- 
+
     /**
      * @param args the command line arguments
      */

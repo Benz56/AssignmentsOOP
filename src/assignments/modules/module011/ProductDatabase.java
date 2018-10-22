@@ -49,7 +49,7 @@ public class ProductDatabase {
     public boolean removeProductByNumber(final int number) {
         for (final Product product : this.inventory) {
             if (product.getProductNumber() == number) {
-                return this.removeProductByNumber(product);
+                return this.removeProduct(product);
             }
         }
         return false;
@@ -61,7 +61,7 @@ public class ProductDatabase {
      * @param product is the product to be removed.
      * @return true if an item was removed; false if it wasn't.
      */
-    public boolean removeProductByNumber(final Product product) {
+    public boolean removeProduct(final Product product) {
         final boolean hasProduct = this.inventory.contains(product);
         if (hasProduct) {
             this.inventory.remove(product);
