@@ -111,7 +111,6 @@ public class Module013 extends AModule {
                 printWriter.close();
             } catch (IOException ex) {
                 System.out.println("Something terrible went wrong! Aborting");
-                return;
             }
         });
 
