@@ -100,9 +100,9 @@ public class ProductDatabase {
 
         /* Below is a fancy way to do this in three lines.
         
-        int removedProducts = this.inventory.size();
+        int initProductCount = this.inventory.size();
         this.inventory.removeAll(this.inventory.stream().filter(product -> product instanceof FoodProduct && product.isExpired()).collect(Collectors.toList()));
-        return removedProducts - this.inventory.size();
+        return initProductCount - this.inventory.size();
         
          */
     }
