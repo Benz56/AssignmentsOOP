@@ -34,16 +34,16 @@ public class Module013 extends AModule {
             try {
                 csvFile = getFile();
             } catch (IOException ex) {
-                System.out.println("Something terrible went wrong! Aborting");  // Print error message.
-                return;                                                         // Return i.e. abort the rest.
+                System.out.println("Something terrible went wrong! Aborting");      // Print error message.
+                return;                                                             // Return i.e. abort the rest.
             }
 
             if (csvFile.length() == 0) {                                            // Check if the file is empty.
                 try {
-                    final PrintWriter printWriter = new PrintWriter(csvFile);       // Create the PrintWriter Object. (Throws FileNotFoundException; subclass of IOException)
+                    final PrintWriter printWriter = new PrintWriter(csvFile);       // Create the PrintWriter Object. (Throws FileNotFoundException)
                     printWriter.println(input);                                     // Print/write the String to the File.
                     printWriter.close();                                            // Close the resource.
-                } catch (IOException ex) {                                          // Catch the IOException and FileNotFoundException.
+                } catch (FileNotFoundException ex) {                                // Catch the FileNotFoundException.
                     System.out.println("Something terrible went wrong! Aborting");  // Print error message.
                     return;                                                         // Return i.e. abort the rest.
                 }
@@ -109,7 +109,7 @@ public class Module013 extends AModule {
                 final PrintWriter printWriter = new PrintWriter(csvFile);
                 printWriter.print(String.join(",", entries));
                 printWriter.close();
-            } catch (IOException ex) {
+            } catch (FileNotFoundException ex) {
                 System.out.println("Something terrible went wrong! Aborting");
             }
         });
@@ -157,7 +157,7 @@ public class Module013 extends AModule {
                 final PrintWriter printWriter = new PrintWriter(csvFile);
                 printWriter.print(String.join(",", entries));
                 printWriter.close();
-            } catch (IOException ex) {
+            } catch (FileNotFoundException ex) {
                 System.out.println("Something terrible went wrong! Aborting");
             }
         });
@@ -170,7 +170,7 @@ public class Module013 extends AModule {
      * @throws IOException if the File couldn't be created.
      */
     public File getFile() throws IOException {
-        final File csvFile = new File("C:\\Users\\bemma\\Desktop\\Uni\\OOP\\twocolors.csv");  // Create the File Object.
+        final File csvFile = new File("C:" + File.separator + "Users" + File.separator + "bemma" + File.separator + "Desktop" + File.separator + "Uni" + File.separator + "OOP" + File.separator + "twocolors.csv");  // Create the File Object.
         if (!csvFile.exists()) {                                                              // If the file doesn't exist, create it.
             csvFile.createNewFile();                                                          // Create the file.
         }
