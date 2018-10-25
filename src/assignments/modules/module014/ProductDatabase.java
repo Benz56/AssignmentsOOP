@@ -72,12 +72,12 @@ public class ProductDatabase {
 
     /**
      * Removes all expired products in the current inventory.
-     * 
+     *
      * @return The number of products removed.
      */
     public int removeExpiredFoods() {
         int removedProducts = 0;  // To keep track of how Products are removed.
-       
+
         /* Iterate over the inventories products. The assignment doesn't mention this
          * but just iterating "this.inventory" will result in a ConcurrentModificationException.
          * This happens when you remove something from a collection you're currently iterating.
@@ -91,20 +91,20 @@ public class ProductDatabase {
                     removedProducts++;
                     this.inventory.remove(product);
                 }
-            } catch (UnsupportedOperationException e) {
+            } catch (UnsupportedOperationException ignored) {
                 //Not a FoodProduct.
             }
         }
-        
+
         return removedProducts; // Return the number of items removed.
 
         /* Below is a fancy way to do this in three lines.
         
         int removedProducts = this.inventory.size();
-        this.inventory.removeAll(this.inventory.stream().filter(product -> product instanceof FoodProduct).collect(Collectors.toList()));
+        this.inventory.removeAll(this.inventory.stream().filter(product -> product instanceof FoodProduct && product.isExpired()).collect(Collectors.toList()));
         return removedProducts - this.inventory.size();
         
-        */
+         */
     }
 
     /**

@@ -29,7 +29,7 @@ public class Module014 extends AModule {
 
             // Add three FoodProduct's to our database.
             for (int productId = 1; productId <= 3; productId++) {
-                productDatabase.addProduct(new FoodProduct(productId, products[productId - 1], Math.random() * 20, new Date(System.currentTimeMillis() - 1L), 22)); // Creates already expired Products.
+                productDatabase.addProduct(new FoodProduct(productId, products[productId - 1], Math.random() * 20, new Date(System.currentTimeMillis() - 1), 22)); // Creates already expired Products.
             }
 
             // Add three NonFoodProduct's to our database.
