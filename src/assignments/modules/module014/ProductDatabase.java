@@ -80,7 +80,7 @@ public class ProductDatabase {
 
         /* Iterate over the inventories products. The assignment doesn't mention this
          * but just iterating "this.inventory" will result in a ConcurrentModificationException.
-         * This happens when you remove something from a collection you're currently iterating.
+         * This happens when you modify something in a collection you're currently iterating.
          * By creating a new ArrayList with the inventories content we can avoid this.
          * Another solution is using an Iterator though we haven't been introduced to that.*/
         for (final Product product : new ArrayList<>(this.inventory)) {
