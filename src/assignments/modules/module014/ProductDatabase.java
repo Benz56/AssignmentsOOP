@@ -98,7 +98,7 @@ public class ProductDatabase {
 
         return removedProducts; // Return the number of items removed.
 
-        /* Below is a fancy way to do this in three lines.
+        /* Below is a fancy way to do this in three lines. (One line if we didn't want to return the number of removed items)
         
         int initProductCount = this.inventory.size();
         this.inventory.removeAll(this.inventory.stream().filter(product -> product instanceof FoodProduct && product.isExpired()).collect(Collectors.toList()));
