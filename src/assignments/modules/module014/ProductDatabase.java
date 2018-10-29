@@ -91,7 +91,7 @@ public class ProductDatabase {
                     removedProducts++;
                     this.inventory.remove(product);
                 }
-            } catch (UnsupportedOperationException ignored) {
+            } catch (final UnsupportedOperationException ignored) {
                 //Not a FoodProduct.
             }
         }
@@ -118,7 +118,7 @@ public class ProductDatabase {
             inventoryValuation += product.getPrice();
         }
         return inventoryValuation;
-        
+
         // One-liner:
         // return this.inventory.stream().mapToDouble(Product::getPrice).sum();
     }
