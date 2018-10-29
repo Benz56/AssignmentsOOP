@@ -5,6 +5,7 @@
  */
 package assignments;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -25,7 +26,7 @@ public class ScannerUtil {
         do {
             try {
                 value = scanner.nextInt();
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please input an integer value!");
                 scanner.next();
             }
@@ -45,7 +46,7 @@ public class ScannerUtil {
         do {
             try {
                 value = scanner.nextLong();
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please input a long value!");
                 scanner.next();
             }
@@ -65,7 +66,7 @@ public class ScannerUtil {
         do {
             try {
                 value = scanner.nextDouble();
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please input a double or integer value!");
                 scanner.next();
             }
