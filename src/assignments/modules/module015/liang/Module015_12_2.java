@@ -24,7 +24,7 @@ public class Module015_12_2 extends AbstractComplexTask {
     @Override
     public void runAssignment() {
         // Get the next integer input from the Scanner. Subtract 1 as arrays as 0 indexed.
-        // Currently we ignore wheter or not the input is an integer. See 12.3 for that.
+        // Currently we ignore whether or not the input is an integer. See 12.3 for that.
         System.out.print("Please input an integer between 1 and 12: ");
         int monthIndex = scanner.nextInt() - 1;
 
