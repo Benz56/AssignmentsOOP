@@ -55,7 +55,7 @@ public class ProductDatabase {
 
         /* Fancy implementation. Removes all products with the given number; not just the first.
         int initSize = this.inventory.size();
-        this.inventory.entrySet().stream().filter(entrySet -> entrySet.getValue().getProductNumber() == number).forEach(entrySet -> this.inventory.remove(entrySet.getKey()));
+        this.inventory.entrySet().stream().filter(entrySet -> entrySet.getValue().getProductNumber() == number).map(entrySet -> entrySet.getKey()).collect(Collectors.toSet()).forEach(key -> this.inventory.remove(key));
         return initSize != this.inventory.size();*/
     }
 
@@ -75,7 +75,7 @@ public class ProductDatabase {
 
         /* Fancy implementation. Removes all products with the given number; not just the first.
         int initSize = this.inventory.size();
-        this.inventory.entrySet().stream().filter(entrySet -> entrySet.getValue().getProductNumber() == product.getProductNumber()).forEach(entrySet -> this.inventory.remove(entrySet.getKey()));
+        this.inventory.entrySet().stream().filter(entrySet -> entrySet.getValue().getProductNumber() == product.getProductNumber()).map(entrySet -> entrySet.getKey()).collect(Collectors.toSet()).forEach(key -> this.inventory.remove(key));
         return initSize != this.inventory.size();*/
     }
 
@@ -103,7 +103,7 @@ public class ProductDatabase {
     public int removeExpiredFoods() {
         int removedProducts = 0;  // To keep track of how Products are removed.
 
-        for (final Map.Entry<UUID, Product> entrySet : this.inventory.entrySet()) {
+        for (final Map.Entry<UUID, Product> entrySet : new HashMap<>(this.inventory).entrySet()) {
             // try-catch. Success if the product has overriden the isExpired() method in Product.
             try {
                 // Remove the product if it is expired.
@@ -120,7 +120,7 @@ public class ProductDatabase {
 
         /* Fancy implementation
         int initProductCount = this.inventory.size();
-        this.inventory.entrySet().stream().filter(entrySet -> entrySet.getValue() instanceof FoodProduct && entrySet.getValue().isExpired()).forEach(entrySet -> this.inventory.remove(entrySet.getKey()));
+        this.inventory.entrySet().stream().filter(entrySet -> entrySet.getValue() instanceof FoodProduct && entrySet.getValue().isExpired()).map(entrySet -> entrySet.getKey()).collect(Collectors.toSet()).forEach(key -> this.inventory.remove(key));
         return initProductCount - this.inventory.size();*/
     }
 
