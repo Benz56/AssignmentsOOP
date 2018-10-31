@@ -17,7 +17,7 @@ public class Triangle {
         this.side1 = this.side2 = this.side3 = 1.0;
     }
 
-    public Triangle(double side1, double side2, double side3) throws IllegalTriangleException {
+    public Triangle(final double side1, final double side2, final double side3) throws IllegalTriangleException {
         if (side1 + side2 < side3 || side1 + side3 < side2 || side2 + side3 < side1) {
             throw new IllegalTriangleException();
         }
@@ -31,7 +31,7 @@ public class Triangle {
         return Math.sqrt(semiPerimiter * (semiPerimiter - this.side1) * (semiPerimiter - this.side2) * (semiPerimiter - this.side3));
     }
 
-    public double getPerimeter() {
+    public double getPerimeter() {  
         return this.side1 + this.side2 + this.side3;
     }
 
