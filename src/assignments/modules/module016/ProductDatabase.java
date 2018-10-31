@@ -126,18 +126,18 @@ public class ProductDatabase {
     }
 
     public List<Product> sortedByNameLength() {
-        List<Product> sorted = new ArrayList<>(this.inventory.values()); // Create an ArrayList from the values in the HashMap.
-        Collections.sort(sorted, new ProductNameLengthComparator());     // Sort it.
-        return sorted;                                                   // Return it.
+        final List<Product> sorted = new ArrayList<>(this.inventory.values()); // Create an ArrayList from the values in the HashMap.
+        Collections.sort(sorted, new ProductNameLengthComparator());           // Sort it.
+        return sorted;                                                         // Return it.
 
         /* Fancy implementation. Doesn't even need the ProductNameLengthComparator class to be created!
         return this.inventory.values().stream().sorted((o1, o2) -> o1.getProductName().length() - o2.getProductName().length()).collect(Collectors.toList());*/
     }
 
     public List<Product> sortedByPrice() {
-        List<Product> sorted = new ArrayList<>(this.inventory.values()); // Create an ArrayList from the values in the HashMap.
-        Collections.sort(sorted);                                        // Sort it.
-        return sorted;                                                   // Return it.
+        final List<Product> sorted = new ArrayList<>(this.inventory.values()); // Create an ArrayList from the values in the HashMap.
+        Collections.sort(sorted);                                              // Sort it.
+        return sorted;                                                         // Return it.
 
         /* Fancy implementation. Doesn't even need the ProductNameLengthComparator class to be created!
         return this.inventory.values().stream().sorted().collect(Collectors.toList());*/
