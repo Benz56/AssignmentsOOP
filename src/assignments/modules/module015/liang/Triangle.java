@@ -27,7 +27,7 @@ public class Triangle {
     }
 
     public double getArea() {
-        final double semiPerimiter = getPerimeter() / 2.0;
+        final double semiPerimiter = getPerimeter() * 0.5;
         return Math.sqrt(semiPerimiter * (semiPerimiter - this.side1) * (semiPerimiter - this.side2) * (semiPerimiter - this.side3));
     }
 
