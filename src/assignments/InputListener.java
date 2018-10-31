@@ -15,6 +15,7 @@ import assignments.modules.module011.Module011;
 import assignments.modules.module013.Module013;
 import assignments.modules.module014.Module014;
 import assignments.modules.module015.Module015;
+import assignments.modules.module016.Module016;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -36,8 +37,10 @@ public class InputListener {
      * modules list above.
      */
     void loadModules() {
-        Stream.of(new Module004(4), new Module005(5), new Module007(7), new Module008(8), new Module009(9),
-                new Module011(11), new Module013(13), new Module014(14), new Module015(15)).forEach(module -> {
+        Stream.of(
+                new Module004(4), new Module005(5), new Module007(7), new Module008(8), new Module009(9),
+                new Module011(11), new Module013(13), new Module014(14), new Module015(15), new Module016(16)
+        ).forEach(module -> {
             module.loadModuleTasks();
             modules.add(module);
         });

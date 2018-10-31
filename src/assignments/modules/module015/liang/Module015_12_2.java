@@ -31,7 +31,7 @@ public class Module015_12_2 extends AbstractComplexTask {
         // If the input value isn't between 1 and 12 an error message is printed and the method is recursively retried.
         try {
             System.out.println(MONTHS[monthIndex] + " has " + DOM[monthIndex] + " days.");
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (final ArrayIndexOutOfBoundsException e) {
             System.out.println("The value has to be between 1 and 12. Try again...");
             runAssignment(); // Recursively retry. Not optimal (bad practice) but it works in accordance with the assignments guidelines.
         }
