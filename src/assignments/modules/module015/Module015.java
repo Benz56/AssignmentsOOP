@@ -6,11 +6,9 @@
 package assignments.modules.module015;
 
 import assignments.modules.AModule;
-import assignments.modules.module015.liang.IllegalTriangleException;
 import assignments.modules.module015.liang.Module015_12_2;
 import assignments.modules.module015.liang.Module015_12_3;
 import assignments.modules.module015.liang.Module015_12_5;
-import assignments.modules.module015.liang.Triangle;
 import java.util.Date;
 
 /**

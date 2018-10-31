@@ -22,7 +22,7 @@ public class FoodProduct extends Product {
      * @param price is the price of the product.
      * @param expirationDate is the expiration date of the product.
      * @param storageTemperature is the storage temperature of the product.
-     * @throws assignments.modules.module015.ExpiredProductAddedException
+     * @throws ExpiredProductAddedException
      */
     public FoodProduct(final int productNumber, final String productName, final double price, final Date expirationDate, final double storageTemperature) throws ExpiredProductAddedException {
         super(productNumber, productName, price);
