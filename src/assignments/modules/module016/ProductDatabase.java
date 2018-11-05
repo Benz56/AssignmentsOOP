@@ -47,7 +47,7 @@ public class ProductDatabase {
      * @return true if an item was removed; false if it wasn't.
      */
     public boolean removeProductByNumber(final int number) {
-        for (final Map.Entry<UUID, Product> entrySet : this.inventory.entrySet()) { // Loop the EntrySets in the Map.
+        for (final Map.Entry<UUID, Product> entrySet : new HashMap<>(this.inventory).entrySet()) { // Loop the EntrySets in the Map.
             if (entrySet.getValue().getProductNumber() == number) {                 // Check if the entrySet's value's productNumber is the desired.
                 return this.inventory.remove(entrySet.getKey()) != null;            // Remove the product and return true.
             }
@@ -67,9 +67,9 @@ public class ProductDatabase {
      * @return true if an item was removed; false if it wasn't.
      */
     public boolean removeProduct(final Product product) {
-        for (final Map.Entry<UUID, Product> entrySet : this.inventory.entrySet()) {     // Loop the EntrySets in the Map.
-            if (entrySet.getValue().getProductNumber() == product.getProductNumber()) { // Check if the entrySet's value's productNumber is the desired.
-                return this.inventory.remove(entrySet.getKey()) != null;                // Remove the product and return true.
+        for (final Map.Entry<UUID, Product> entrySet : new HashMap<>(this.inventory).entrySet()) {  // Loop the EntrySets in the Map.
+            if (entrySet.getValue().getProductNumber() == product.getProductNumber()) {             // Check if the entrySet's value's productNumber is the desired.
+                return this.inventory.remove(entrySet.getKey()) != null;                            // Remove the product and return true.
             }
         }
         return false;
